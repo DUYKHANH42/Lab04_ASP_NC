@@ -1,5 +1,6 @@
 ﻿using Lab04.Models;
 using Lab04.VM;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
@@ -96,7 +97,7 @@ namespace Lab04.Controllers
                 }).ToList();
             return View(product);
         }
-        public IActionResult Delete(int id)
+            public IActionResult Delete(int id)
         {
             var product = _context.Products.Find(id);
             if (product == null) return NotFound();
@@ -104,6 +105,7 @@ namespace Lab04.Controllers
             _context.SaveChanges();
             return RedirectToAction("Index");
         }
+        [Authorize(Roles = "Admin")]
         public IActionResult ThongKe()
         {
             var result = _context.Products

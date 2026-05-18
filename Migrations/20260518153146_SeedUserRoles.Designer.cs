@@ -4,14 +4,16 @@ using Lab04.Models;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace Lab04.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    partial class DbConTextModelSnapshot : ModelSnapshot
+    [Migration("20260518153146_SeedUserRoles")]
+    partial class SeedUserRoles
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
